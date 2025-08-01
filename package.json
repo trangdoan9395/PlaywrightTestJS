@@ -1,0 +1,25 @@
+{
+  "name": "playwrighttestjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trangdoan9395/PlaywrightTestJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trangdoan9395/PlaywrightTestJS/issues"
+  },
+  "homepage": "https://github.com/trangdoan9395/PlaywrightTestJS#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0"
+  },
+  "dependencies": {
+    "playwright": "^1.54.1"
+  }
+}
