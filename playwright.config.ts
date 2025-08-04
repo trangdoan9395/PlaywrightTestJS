@@ -36,10 +36,18 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'on-first-retry',
+
+      },
     },
 
-    {
+   /*
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
@@ -76,4 +84,40 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
+   // Glob patterns or regular expressions to ignore test files.
+  //testIgnore: '*test-assets',
+
+  // Glob patterns or regular expressions that match test files.
+  //testMatch: '*todo-tests/*.spec.ts',
+   // Folder for test artifacts such as screenshots, videos, traces, etc.
+ // outputDir: 'test-results',
+
+  // path to the global setup files.
+  //globalSetup: require.resolve('./global-setup'),
+
+  // path to the global teardown files.
+  //globalTeardown: require.resolve('./global-teardown'),
+
+  // Each test is given 30 seconds.
+  //timeout: 30000,
+   // Maximum time expect() should wait for the condition to be met.
+   // timeout: 5000,
+
+    //expect: {
+    // Maximum time expect() should wait for the condition to be met.
+   // timeout: 5000,
+
+   // toHaveScreenshot: {
+      // An acceptable amount of pixels that could be different, unset by default.
+   //   maxDiffPixels: 10,
+   // },
+
+  //  toMatchSnapshot: {
+      // An acceptable ratio of pixels that are different to the
+      // total amount of pixels, between 0 and 1.
+   //   maxDiffPixelRatio: 0.1,
+   // },
+ // },
+ 
+
 });
