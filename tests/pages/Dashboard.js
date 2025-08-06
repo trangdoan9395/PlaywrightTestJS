@@ -1,27 +1,32 @@
-export class DashboardPage {
+import { get } from "http";
+
+export default class DashboardPage {
     constructor(page) { 
         this.page = page;
-    }async getLabelsTimedashboard() {
-        return this.page.locator("//h6[text()='Dashboard']");
+    } getLabelsTimedashboard() {
+        return this.page.locator("//p[text()='Time at Work']");
 
     }
-    async getLabelsActions() {
+     getLabelsActions() {
         return this.page.locator("//p[text()='My Actions']");
 
-    }async getLabelsQuickLaunch() {
+    }
+     getLabelsQuickLaunch() {
         return this.page.locator("//p[text()='Quick Launch']");
+    } 
+    getLabelBuzzLatestPosts() {
+        return this.page.locator("//p[text()='Buzz Latest Posts']");
 
-
-    }async getLabelBuzzLatestPosts() {
-        return this.page.locator("//p[text()='Latest Posts']");
-
-    }async getLabelEmployeesOnLeaveToday() {
+    } 
+    getLabelEmployeesOnLeaveToday() {
         return this.page.locator("//p[text()='Employees on Leave Today']");
 
-    }async getLabelDistributtionbySubUnit() {
-        return this.page.locator("//p[text()='Distribution by Sub Unit']");
+    } 
+    getLabelDistributtionbySubUnit() {
+        return this.page.locator("//p[text()='Employee Distribution by Sub Unit']");
 
-    }async getLabelEmployeeDistributionBylocation() {
+    } 
+    getLabelEmployeeDistributionBylocation() {
         return this.page.locator("//p[text()='Employee Distribution by Location']");
 
     }
