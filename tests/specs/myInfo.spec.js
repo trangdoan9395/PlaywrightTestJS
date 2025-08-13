@@ -1,23 +1,39 @@
-import PerformancePage  from '../pages/PerformancePage.js';
 import { test, expect } from '@playwright/test';
 import  LoginPage  from '../pages/LoginPage.js';
 import MyInfoPage  from '../pages/MyInfoPage';
-
-
+import { faker } from '@faker-js/faker';       
+import { getRandomFormattedDate } from '../../common/date.js';
 test ("Test My info ", async ({ page }) => {
- const loginPage = new LoginPage(page);
+        const loginPage = new LoginPage(page);
         const myInfoPage = new MyInfoPage(page);
+        const firstName = faker.person.firstName();
+        const middleName = faker.person.middleName();
+        const employeeLastName = faker.person.lastName();
+        const employeeId = faker.string.numeric(5);
+        const otherId = faker.string.numeric(5);
+        const licenseNumber = faker.string.alphanumeric(8);
+        const licenseExpiryDate = getRandomFormattedDate('yyyy-MM-dd');
         await loginPage.goto();
         await loginPage.fillCredentials("Admin", "admin123");
         await loginPage.submit();
-        myInfoPage.getButtonMyInfo().click();
-        myInfoPage.getInputEmployFirstName().fill("John");
-        myInfoPage.getInputEmployMiddleName().fill("Doe");
-        myInfoPage.getInputEmployLastName().fill("Smith");
-        myInfoPage.getInputEmployID().fill("12345");
-        myInfoPage.getInputOtherID().fill("67890");
-        myInfoPage.getInputLicenseNumber().fill("A1234567");
-        myInfoPage.getInputDate().fill("12/31/2025");
-        myInfoPage.getInputDateOfBirth().fill("01/01/1990");
-
+        await myInfoPage.getButtonMyInfo().click();
+        await expect(myInfoPage.getTitleHeader()).toBeVisible();
+        await myInfoPage.getInputEmployFirstName().fill(firstName);
+        await myInfoPage.getInputEmployMiddleName().fill(middleName);
+        await myInfoPage.getInputEmployLastName().fill(employeeLastName);
+        await myInfoPage.getInputEmployID().fill(employeeId);
+        await myInfoPage.getInputOtherID().fill(otherId);
+        await myInfoPage.getInputLicenseNumber().fill(licenseNumber);
+        await myInfoPage.getInputDate().fill(licenseExpiryDate);
+        await myInfoPage.getInputDateOfBirth().fill(licenseExpiryDate);
+        await myInfoPage.getButtonSave().click();
+        await page.waitForTimeout(5000); // Wait for the save action to complete
+        await expect(myInfoPage.getInputEmployFirstName()).toHaveValue(firstName);
+        await expect(myInfoPage.getInputEmployMiddleName()).toHaveValue(middleName);
+        await expect(myInfoPage.getInputEmployLastName()).toHaveValue(employeeLastName);
+        await expect(myInfoPage.getInputEmployID()).toHaveValue(employeeId);
+        await expect(myInfoPage.getInputOtherID()).toHaveValue(otherId);
+        await expect(myInfoPage.getInputLicenseNumber()).toHaveValue(licenseNumber);
+        await expect(myInfoPage.getInputDate()).toHaveValue(licenseExpiryDate);
+        await expect(myInfoPage.getInputDateOfBirth()).toHaveValue(licenseExpiryDate);
 });

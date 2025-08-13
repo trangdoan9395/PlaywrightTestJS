@@ -25,6 +25,9 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    screenshot: 'only-on-failure', // Chụp lại màn hình khi test thất bại
+    video: 'on-first-retry',
+
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -118,6 +121,16 @@ export default defineConfig({
    //   maxDiffPixelRatio: 0.1,
    // },
  // },
+
+  //...
+  use: {
+    //...
+    screenshot: 'only-on-failure', // Chụp lại màn hình khi test thất bại
+    video: 'on-first-retry',        // Tùy chọn: ghi lại video khi chạy lại test lần đầu
+  },
+  //...
+  reporter: 'html', // Báo cáo HTML sẽ chứa ảnh chụp màn hình và video
+});
  
 
-});
+
