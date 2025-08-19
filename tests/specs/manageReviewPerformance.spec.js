@@ -21,6 +21,17 @@ test ("Tracker Performance Test", async ({ page }) => {
         await expect(manageReviewPage.getTitleHeader()).toBeVisible();
         await manageReviewPage.getInputEmployName().fill("John Doe");
         await manageReviewPage.getButtonSelectJobTitle("Job Title").click();
-        await selectOptionDropdown(page, 'Automated test');
+        await selectOptionDropdown(page, 'Automaton Tester');
+        await manageReviewPage.getButtonSelectJobTitle("Sub Unit").click();
+        await selectOptionDropdown(page, 'TechOps');
+        await manageReviewPage.getButtonSelectJobTitle("Include").click();
+        await selectOptionDropdown(page, 'Current Employees Only');
+        await manageReviewPage.getButtonSelectJobTitle("Review Status").click();
+        await selectOptionDropdown(page, 'Completed');
+        await manageReviewPage.getInputDate("From Date").fill("2023-01-01");
+        await manageReviewPage.getInputDate("To Date").fill("2023-12-31");
+
+
+
 }
 );

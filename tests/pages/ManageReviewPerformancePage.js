@@ -16,10 +16,10 @@ export default class ManageReviewPage {
     getTitleHeader(){
         return this.page.locator("//h5[text()='Employee Reviews']");
     }
-    getLabelSelect(label){
-        return this.page.locator(`//label[text()='${label}']//parent::div//following-sibling::div//child::div[@class='oxd-select-text oxd-select-text--active']`);
+    getInputDate(title) {
+        return this.page.locator(`//label[contains(text(),'${title}')]//parent::div//following-sibling::div//input`);
     }
-    
+
 
 
 
