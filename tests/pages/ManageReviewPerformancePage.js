@@ -19,6 +19,12 @@ export default class ManageReviewPage {
     getInputDate(title) {
         return this.page.locator(`//label[contains(text(),'${title}')]//parent::div//following-sibling::div//input`);
     }
+    getButtonSearch() {
+        return this.page.locator(`//button[@type = 'submit']`);
+    }
+    getButtonReset(){
+        return this.page.locator(`//button[@type = 'reset']`);
+    }
 
 
 

@@ -8,8 +8,8 @@ export default class LoginPage {
     }
 
     async fillCredentials(username, password) {
-        await this.page.locator("//input[@placeholder='Username']").fill(username);
-        await this.page.locator("//input[@placeholder='Password']").fill(password);
+        await this.page.locator("//input[@placeholder='username']").fill(username);
+        await this.page.locator("//input[@placeholder='password']").fill(password);
     }
 
     async submit() {

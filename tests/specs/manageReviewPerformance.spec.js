@@ -30,6 +30,7 @@ test ("Tracker Performance Test", async ({ page }) => {
         await selectOptionDropdown(page, 'Completed');
         await manageReviewPage.getInputDate("From Date").fill("2023-01-01");
         await manageReviewPage.getInputDate("To Date").fill("2023-12-31");
+        await manageReviewPage.getButtonSearch().click();
 
 
 
